@@ -1,0 +1,27 @@
+<h3>Register</h3>
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+  <p>
+    <label>Username:</label>
+    <input type="text" name="username"
+           ngModel required>
+  </p>
+  <p>
+    <label>email:</label>
+    <input type="email" name="email"
+           ngModel required>
+  </p>
+  <p>
+    <label>Password:</label>
+    <input type="password" name="password"
+           ngModel required>
+  </p>
+  <p>
+    <label>Full name [optional]:</label>
+    <input type="text" name="full_name"
+           ngModel>
+  </p>
+  <p>
+    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+  </p>
+</form>
+

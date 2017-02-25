@@ -1,0 +1,20 @@
+<h2>{{ click.title }}</h2>
+
+<audio controls *ngIf='click.media_type === "audio"'>
+  <source [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+click.filename">
+</audio>
+<video *ngIf='click.media_type === "video"' controls>
+  <source  [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+click.filename">
+</video>
+<img *ngIf='click.media_type === "image"' [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+click.filename">
+
+<ul>
+  <li>Username: {{ click.username }}</li>
+  <li>Description: {{ click.description }}</li>
+  <li>Date added: {{ click.time_added }}</li>
+  <li>Like: {{likeCount}}</li>
+</ul>
+
+<h3 *ngIf="hasLiked">I like it!</h3>
+<button (click)="putLike()">{{ hasLiked ? 'Unlike' : 'Like' }}</button>
+
